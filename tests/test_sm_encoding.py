@@ -43,7 +43,9 @@ class SMDecoderTest(unittest.TestCase):
         #'T- Mobile flip phone \xa7 \xa8 N random special charcters'
         pduHex = b'0000006f00000005000000005d3fe724544d4f4249000101313535353132333435363700010131373733383238343037300000000000000000000033542d204d6f62696c6520666c69702070686f6e6520a720a8204e2072616e646f6d207370656369616c20636861726374657273'
         pdu = self.getPDU(pduHex)
-        self.assertRaises(UnicodeDecodeError, SMStringEncoder().decodeSM, pdu)
+        smStr = SMStringEncoder().decodeSM(pdu)
+        # non-ASCII bytes are replaced rather than raising
+        self.assertEqual(u'T- Mobile flip phone \ufffd \ufffd N random special charcters', smStr.unicode)
 
     def test_decode_latin1(self):
         pduHex = b'0000004200000005000000002a603d56415753424400010131353535313233343536370001013137373338323834303730000000000000000003000645737061f161'

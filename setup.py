@@ -13,6 +13,7 @@ setup(
     py_modules=["smpp.pdu3"],
     include_package_data=True,
     zip_safe=False,
+    python_requires=">=3.5",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Topic :: System :: Networking",
@@ -25,6 +26,12 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
+        'Programming Language :: Python :: 3.14',
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
 )
